@@ -26,7 +26,7 @@ public class LingeringThought()
         );
         foreach (var card in cards)
         {
-            card.AddKeyword(CardKeyword.Innate);
+            card.AddKeyword(CardKeyword.Retain);
         }
     }
 
