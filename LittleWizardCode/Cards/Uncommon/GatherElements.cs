@@ -20,11 +20,10 @@ public class GatherElements()
     {
         if (IsUpgraded)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await PowerCmd.Apply<GatherElementsUpgradePower>(
                 choiceContext,
-                cardPlay.Target,
-                DynamicVarsHelper.GetPowerVar<GatherElementsUpgradePower>(DynamicVars).BaseValue,
+                Owner.Creature,
+                DynamicVarsHelper.GetPowerVar<GatherElementsPower>(DynamicVars).BaseValue,
                 Owner.Creature,
                 this
             );

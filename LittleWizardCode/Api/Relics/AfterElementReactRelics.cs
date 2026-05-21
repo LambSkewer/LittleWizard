@@ -15,10 +15,10 @@ public abstract class AfterElementReactRelics : LittleWizardRelics
         CardModel? cardSource
     )
     {
-        if (power.Owner != Owner.Creature)
+        if (applier == null)
             return;
         if (power is FireWaterReactor or FireEarthReactor or WaterEarthReactor)
-            await AfterElementReact(ctx, Owner.Creature, amount, applier, cardSource);
+            await AfterElementReact(ctx, applier, amount, applier, cardSource);
         await base.AfterPowerAmountChanged(ctx, power, amount, applier, cardSource);
     }
 
