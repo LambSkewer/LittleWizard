@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3wrer4cfag4s"
-path="res://.godot/imported/could_not_putIt_down.png-13a701785e6400be551d3d0d670187ad.ctex"
+uid="uid://dfgt6j8c4r1is"
+path="res://.godot/imported/warmup_beam.png-2e1c5c919afd9d72788c8e295640a9d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/images/card_portraits/could_not_putIt_down.png"
-dest_files=["res://.godot/imported/could_not_putIt_down.png-13a701785e6400be551d3d0d670187ad.ctex"]
+source_file="res://LittleWizard/images/card_portraits/big/warmup_beam.png"
+dest_files=["res://.godot/imported/warmup_beam.png-2e1c5c919afd9d72788c8e295640a9d4.ctex"]
 
 [params]
 

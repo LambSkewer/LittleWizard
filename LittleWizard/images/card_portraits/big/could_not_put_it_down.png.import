@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deljoo6o6dhy6"
-path="res://.godot/imported/mana_shield.png-2d5e81fdd4336a91a2d375474880473b.ctex"
+uid="uid://b6nhsuabycwdh"
+path="res://.godot/imported/could_not_put_it_down.png-26b6adba55b80b9f6ebee7eb1a98ecb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/images/card_portraits/mana_shield.png"
-dest_files=["res://.godot/imported/mana_shield.png-2d5e81fdd4336a91a2d375474880473b.ctex"]
+source_file="res://LittleWizard/images/card_portraits/big/could_not_put_it_down.png"
+dest_files=["res://.godot/imported/could_not_put_it_down.png-26b6adba55b80b9f6ebee7eb1a98ecb9.ctex"]
 
 [params]
 

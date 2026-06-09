@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deljoo6o6dhy6"
-path="res://.godot/imported/mana_shield.png-2d5e81fdd4336a91a2d375474880473b.ctex"
+uid="uid://bn58ej3ajuy5g"
+path="res://.godot/imported/warmup_beam.png-0d2ef66800be4470fde370d69e9d5c48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/images/card_portraits/mana_shield.png"
-dest_files=["res://.godot/imported/mana_shield.png-2d5e81fdd4336a91a2d375474880473b.ctex"]
+source_file="res://LittleWizard/images/card_portraits/warmup_beam.png"
+dest_files=["res://.godot/imported/warmup_beam.png-0d2ef66800be4470fde370d69e9d5c48.ctex"]
 
 [params]
 
