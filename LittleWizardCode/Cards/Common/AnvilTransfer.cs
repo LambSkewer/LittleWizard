@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Common;
@@ -12,23 +13,40 @@ namespace LittleWizard.LittleWizardCode.Cards.Common;
 public class AnvilTransfer()
     : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new DamageVar(9, ValueProp.Move), new CardsVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        if (Owner.Creature.Player == null || Owner.PlayerCombatState == null)
+        if (Owner.PlayerCombatState == null)
             return;
-        var card = Owner.Creature.Player.RunState.Rng.CombatCardSelection.NextItem(
-            Owner.PlayerCombatState.Hand.Cards.Where(c => c.IsUpgradable)
-        );
-        if (card != null)
+
+        var upgradeCount = DynamicVars.Cards.IntValue;
+        var upgradableCards = Owner
+            .PlayerCombatState.Hand.Cards.Where(c => c.IsUpgradable)
+            .ToList();
+        var upgradedCards = new List<CardModel>();
+        var rng = Owner.RunState.Rng.CombatCardSelection;
+        for (int i = 0; i < upgradeCount && upgradableCards.Count > 0; i++)
+        {
+            var card = rng.NextItem(upgradableCards);
+            if (card == null)
+                break;
             CardCmd.Upgrade(card);
+            upgradedCards.Add(card);
+            if (!card.IsUpgradable)
+                upgradableCards.Remove(card);
+        }
+
+        CardCmd.Preview(upgradedCards, 1f);
+
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Cards.UpgradeValueBy(2);
     }
 }
